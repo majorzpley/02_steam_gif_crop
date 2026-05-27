@@ -1,0 +1,43 @@
+CompileFlags:
+  Add:
+    # Qt 头文件路径
+    - -Ic:/Qt/6.11.1/mingw_64/include
+    - -Ic:/Qt/6.11.1/mingw_64/include/QtCore
+    - -Ic:/Qt/6.11.1/mingw_64/include/QtGui
+    - -Ic:/Qt/6.11.1/mingw_64/include/QtWidgets
+    
+    # MinGW 标准库头文件路径（根据你的版本修改）
+    - -Ic:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++
+    - -Ic:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32
+    - -Ic:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward
+    
+    # MinGW GCC 内部头文件
+    - -Ic:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include
+    
+    # MinGW 系统头文件
+    - -Ic:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include
+    
+    # 告诉 clangd 使用 Qt 的 Clang 配置
+    - -Wno-unknown-attributes
+    - -Wno-unused-parameter
+    - -Wno-unused-variable
+    - -fno-operator-names
+    # 禁用继承相关的误报
+    - -Wno-inaccessible-base
+    
+  Remove:
+    - -fno-keep-inline-dllexport
+    - -mthreads
+    - -pthread
+
+Diagnostics:
+  Suppress:
+    # 关键：禁用这个误报
+    - member_function_call_bad_type
+    - c++98-compat
+    - c++20-compat
+    - modernize-use-nullptr
+    - readability-braces-around-statements
+    
+Index:
+  Background: Build

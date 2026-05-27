@@ -1,0 +1,16 @@
+{
+    // 1. 关键步骤：告诉 clangd 去哪里找 compile_commands.json
+    "cmake.cmakePath": "C:\\Qt\\Tools\\CMake_64\\bin\\cmake.exe",
+    // "clangd.path": "C:\\Users\\wyx12\\Documents\\02_Software\\00_Qt_Projects\\clangd_13.0.0\\bin\\clangd.exe",
+    "clangd.arguments": [
+        "--header-insertion=never",
+        "--compile-commands-dir=${workspaceFolder}/build",
+        "--log=verbose",
+        // 2. 另一个关键步骤：让 clangd 跟随你 MinGW 编译器的头文件路径
+        "--query-driver=C:/Qt/Tools/mingw1310_64/bin/g++.exe",
+        "--background-index",
+        "--header-insertion=never"
+    ],
+    // 3. 禁用微软的 C++ 插件，避免冲突
+    "C_Cpp.intelliSenseEngine": "disabled"
+}

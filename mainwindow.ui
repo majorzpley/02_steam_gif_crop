@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>1000</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Steam GIF Cutter - 创意工坊切割工具</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QMainWindow {
+        background-color: #1a1e2c;
+    }
+    QLabel#titleLabel {
+        color: #66c0f4;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 5px;
+    }
+    QLabel#subtitleLabel {
+        color: #8f98a0;
+        font-size: 12px;
+        padding-bottom: 5px;
+    }
+    QGroupBox {
+        color: #66c0f4;
+        font-weight: bold;
+        font-size: 14px;
+        border: 2px solid #2a2e3c;
+        border-radius: 10px;
+        margin-top: 10px;
+        padding-top: 10px;
+        background-color: #1e2434;
+    }
+    QGroupBox::title {
+        subcontrol-origin: margin;
+        left: 20px;
+        padding: 0 10px 0 10px;
+    }
+    QPushButton {
+        background-color: #2a6e85;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 8px 16px;
+        font-weight: bold;
+        font-size: 13px;
+    }
+    QPushButton:hover {
+        background-color: #3d8ca8;
+    }
+    QPushButton:pressed {
+        background-color: #1e4d60;
+    }
+    QPushButton:disabled {
+        background-color: #3a3f4e;
+        color: #7a7f8e;
+    }
+    QPushButton#startButton {
+        background-color: #4c6a22;
+        font-size: 16px;
+        padding: 12px;
+    }
+    QPushButton#startButton:hover {
+        background-color: #5f8030;
+    }
+    QLineEdit {
+        background-color: #0e111a;
+        color: #c6d4df;
+        border: 1px solid #2a6e85;
+        border-radius: 6px;
+        padding: 8px;
+        font-size: 12px;
+    }
+    QProgressBar {
+        border: 1px solid #2a6e85;
+        border-radius: 6px;
+        text-align: center;
+        color: white;
+        background-color: #0e111a;
+        min-height: 25px;
+    }
+    QProgressBar::chunk {
+        background-color: #4c6a22;
+        border-radius: 5px;
+    }
+    QLabel#infoLabel {
+        color: #8f98a0;
+        font-size: 11px;
+        padding: 8px;
+        background-color: #0e111a;
+        border-radius: 6px;
+    }
+    QLabel#statusLabel {
+        color: #8f98a0;
+        font-size: 12px;
+        padding: 8px;
+        background-color: #0e111a;
+        border-radius: 6px;
+        min-height: 35px;
+    }
+    QLabel#previewLabel {
+        background-color: #0e111a;
+        border-radius: 10px;
+        padding: 5px;
+        border: 1px solid #2a6e85;
+    }
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>10</number>
+    </property>
+    <property name="leftMargin">
+     <number>15</number>
+    </property>
+    <property name="topMargin">
+     <number>15</number>
+    </property>
+    <property name="rightMargin">
+     <number>15</number>
+    </property>
+    <property name="bottomMargin">
+     <number>15</number>
+    </property>
+    
+    <item>
+     <widget class="QLabel" name="titleLabel">
+      <property name="text">
+       <string>🎮 Steam 创意工坊 GIF 切割工具</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="subtitleLabel">
+      <property name="text">
+       <string>将 GIF 纵向 5 等分，自动优化到 5MB 以内，完美适配创意工坊展柜</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    
+    <item>
+     <widget class="QGroupBox" name="fileGroupBox">
+      <property name="title">
+       <string>📁 选择文件</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLineEdit" name="fileEdit">
+         <property name="placeholderText">
+          <string>点击右侧按钮选择 GIF 文件...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="fileButton">
+         <property name="text">
+          <string>📂 浏览</string>
+         </property>
+         <property name="minimumWidth">
+          <number>100</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    
+    <item>
+     <widget class="QGroupBox" name="outputGroupBox">
+      <property name="title">
+       <string>💾 输出目录</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLineEdit" name="outputEdit">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="outputButton">
+         <property name="text">
+          <string>📁 选择</string>
+         </property>
+         <property name="minimumWidth">
+          <number>100</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    
+    <!-- 预览区域 - 不使用滚动区域，直接显示 -->
+    <item>
+     <widget class="QGroupBox" name="previewGroupBox">
+      <property name="title">
+       <string>👁️ 预览 (红色虚线为切割线)</string>
+      </property>
+      <layout class="QVBoxLayout" name="previewLayout">
+       <item>
+        <widget class="QLabel" name="previewLabel">
+         <property name="minimumSize">
+          <size>
+           <width>800</width>
+           <height>500</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>🎬 选择 GIF 后自动循环播放</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    
+    <item>
+     <widget class="QGroupBox" name="progressGroupBox">
+      <property name="title">
+       <string>📊 处理进度</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QProgressBar" name="progressBar">
+         <property name="value">
+          <number>0</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="statusLabel">
+         <property name="text">
+          <string>✨ 就绪，等待开始</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    
+    <item>
+     <widget class="QPushButton" name="startButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>⚡ 开始切割并优化 ⚡</string>
+      </property>
+      <property name="minimumHeight">
+       <number>45</number>
+      </property>
+     </widget>
+    </item>
+    
+    <item>
+     <widget class="QLabel" name="infoLabel">
+      <property name="text">
+       <string>📌 使用说明：
+• 选择 GIF 文件后会自动循环播放，红色虚线为 5 等分切割位置
+• 点击开始后自动纵向切割为 5 张，并压缩至 5MB 以内
+• 生成的 5 张 GIF 帧数和帧率完全一致，可完美拼接
+• 输出文件命名：steam_gif_1.gif ~ steam_gif_5.gif</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
