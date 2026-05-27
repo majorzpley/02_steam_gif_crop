@@ -366,13 +366,8 @@ void GifProcessor::process() {
     int left = piece * originalPieceWidth;
     int cutWidth;
 
-    if (piece == 4) {
-      // 最后一块：从左边起始位置到图片末尾
-      cutWidth = width - left;
-    } else {
-      // 前面4块：每块减去右侧的 GAP 像素
-      cutWidth = originalPieceWidth - GAP;
-    }
+    // 所有5块：每块减去右侧的 GAP 像素
+    cutWidth = originalPieceWidth - GAP;
 
     pieceCuts.append(qMakePair(left, cutWidth));
 
